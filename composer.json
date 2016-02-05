@@ -1,0 +1,16 @@
+{
+    "name": "adrienlucas/stacy",
+    "description": "Trunk Based Developement for PHP",
+    "authors": [
+        {
+            "name": "Adrien LUCAS",
+            "email": "adrien.lucas@sensiolabs.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Stacy\\": "src/"
+        }
+    }
+}
