@@ -8,17 +8,16 @@
 
     <testsuites>
         <testsuite name="Stacy Test Suite">
-            <directory>test</directory>
+            <directory>tests/units</directory>
         </testsuite>
     </testsuites>
 
     <filter>
-        <whitelist>
-            <directory>.</directory>
-            <exclude>
-                <directory>test</directory>
-                <directory>vendor</directory>
-            </exclude>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
+    <logging>
+        <log type="coverage-clover" target="./clover.xml"/>
+    </logging>
 </phpunit>

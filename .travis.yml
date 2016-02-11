@@ -9,4 +9,4 @@ before_script:
 
 script:
   - phpunit
-  - php ./bin/coverage-checker.php clover.xml 100
+  - php ./bin/coverage-check.php clover.xml 100

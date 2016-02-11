@@ -11,18 +11,20 @@ namespace Stacy;
 
 class ExperimentResult
 {
-    private $control;
+    private $controlCallback;
     private $result;
+    private $exception;
 
     /**
      * ExperimentResult constructor.
      * @param $control
      * @param $result
      */
-    public function __construct($control, $result)
+    public function __construct($controlCallback, $result, $exception)
     {
-        $this->control = $control;
+        $this->controlCallback = $controlCallback;
         $this->result = $result;
+        $this->exception = $exception;
     }
 
     /**
@@ -30,6 +32,11 @@ class ExperimentResult
      */
     public function hasMatched()
     {
-        return $this->control === $this->result;
+        return call_user_func($this->controlCallback, $this->result);
+    }
+
+    public function hasThrownException()
+    {
+        return $this->exception !== null;
     }
 }
